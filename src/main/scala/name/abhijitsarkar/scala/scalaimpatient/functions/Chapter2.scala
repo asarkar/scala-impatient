@@ -5,7 +5,7 @@ import scala.math.{ pow => mathPow }
 /**
  * @author Abhijit Sarkar
  */
-class Chapter2 {
+object Chapter2 {
   /**
    * Q1: The ''signum'' of a number is 1 if the number is positive, -1 if it is negative, and 0 if it is zero.
    * Write a function that computes this value.

@@ -3,7 +3,7 @@ package name.abhijitsarkar.scala.scalaimpatient.arrays
 import scala.util.Random
 import java.util.TimeZone.getAvailableIDs
 
-class Chapter3 {
+object Chapter3 {
   /**
    * Q1: Write a code snippet that sets `a` to an array of `n` random integers between `0` (inclusive)
    * and `n` (exclusive).
