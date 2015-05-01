@@ -1,15 +1,13 @@
 package name.abhijitsarkar.scala.scalaimpatient.arrays
 
-import org.scalatest.FlatSpec
-import org.scalatest.Matchers
-
 import Chapter3.deDup
 import Chapter3.partition
 import Chapter3.swapWithFor
 import Chapter3.swapWithGrouped
 import Chapter3.swapWithZipWithIndex
+import name.abhijitsarkar.scala.scalaimpatient.UnitSpec
 
-class Chapter3Spec extends FlatSpec with Matchers {
+class Chapter3Spec extends UnitSpec {
 
   /* Arrays need 'deep' comparison for equality */
 

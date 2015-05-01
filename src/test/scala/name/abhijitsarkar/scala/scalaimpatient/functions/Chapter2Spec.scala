@@ -1,14 +1,12 @@
 package name.abhijitsarkar.scala.scalaimpatient.functions
 
-import org.scalatest.FlatSpec
-import org.scalatest.Matchers
-
 import Chapter2.pow
+import name.abhijitsarkar.scala.scalaimpatient.UnitSpec
 
 /**
  * @author Abhijit Sarkar
  */
-class Chapter2Spec extends FlatSpec with Matchers {
+class Chapter2Spec extends UnitSpec {
   "pow method" should "return 4 for 2 raised to the power of 2" in {
     pow(2, 2) should be(4)
   }
