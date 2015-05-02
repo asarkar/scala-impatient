@@ -1,5 +1,6 @@
 /target/
 /.cache
+/.settings
 /.classpath
 /.project
 /.worksheet
