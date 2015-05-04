@@ -16,7 +16,7 @@ class Bundle extends Item {
     /* http://daily-scala.blogspot.com/2010/05/zipwithindex.html */
     (items.view.zipWithIndex foldLeft "") {
       /* http://docs.scala-lang.org/overviews/core/string-interpolation.html */
-      case (acc, (item, index)) => f"$acc; Item ${index + 1}%d: ${item.description}%s"
+      case (acc, (item, index)) => f"$acc%s; Item ${index + 1}%d: ${item.description}%s"
     }.drop(2) // Get rid of the leading '; '
   }
 

@@ -45,7 +45,7 @@ object Chapter4 {
    */
   def minmax(values: Array[Int]) = {
     values.foldLeft((0, 0)) {
-      case (t, v) => (t._1 min v, t._2 max v)
+      case ((min, max), v) => (v.min(min), v.max(max))
     }
   }
 
@@ -55,12 +55,12 @@ object Chapter4 {
    */
   def lteggt(values: Array[Int], v: Int) = {
     values.foldLeft((0, 0, 0)) {
-      case (t, el) => {
+      case ((lessThan, equal, greaterThan), el) => {
         if (el < v)
-          (t._1 + 1, t._2, t._3)
+          (lessThan + 1, equal, greaterThan)
         else if (el > v)
-          (t._1, t._2, t._3 + 1)
-        else (t._1, t._2 + 1, t._3)
+          (lessThan, equal, greaterThan + 1)
+        else (lessThan, equal + 1, greaterThan)
       }
     }
   }

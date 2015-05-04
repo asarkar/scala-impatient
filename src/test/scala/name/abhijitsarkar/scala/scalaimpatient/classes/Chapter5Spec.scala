@@ -1,6 +1,6 @@
-package name.abhijitsarkar.scala.scalaimpatient
+package name.abhijitsarkar.scala.scalaimpatient.classes
 
-import name.abhijitsarkar.scala.scalaimpatient.classes.BankAccount
+import name.abhijitsarkar.scala.scalaimpatient.UnitSpec
 
 class Chapter5Spec extends UnitSpec {
   "Bank account balance" should "change after withdrawal or deposit" in {

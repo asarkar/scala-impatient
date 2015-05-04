@@ -1,6 +1,7 @@
 package name.abhijitsarkar.scala.scalaimpatient.maps
 
 import scala.io.Source
+import scala.util.Properties.lineSeparator
 
 import org.mockito.Mockito.when
 import org.scalatest.mock.MockitoSugar
@@ -26,15 +27,16 @@ class Chapter4Spec extends UnitSpec with MockitoSugar {
     def lines = {
       List("a b c", "b").iterator
     }
-
-    val mockSrc = mock[Source]
-    when(mockSrc.getLines).thenReturn(lines)
+    
+    val mockSrc = Source.fromString(f"a b c a$lineSeparator%sb")
 
     val wordCount = countWords(mockSrc)
 
-    wordCount should contain(("a", 1))
+    wordCount should contain(("a", 2))
     wordCount should contain(("b", 2))
     wordCount should contain(("c", 1))
+    
+    mockSrc.close()
   }
 
   "sysProps method" should "return all system properties and the length of the longest key" in {

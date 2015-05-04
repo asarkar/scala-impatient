@@ -50,9 +50,9 @@ object Chapter3 {
    */
   def partition(a: Array[Int]) = {
     /* temp is a Tuple2 of Array[Int] */
-    val temp = a.partition(_ >= 0)
+    val (positive, zeroOrNegative) = a.partition(_ >= 0)
 
-    temp._1 ++ temp._2
+    positive ++ zeroOrNegative
   }
 
   /**

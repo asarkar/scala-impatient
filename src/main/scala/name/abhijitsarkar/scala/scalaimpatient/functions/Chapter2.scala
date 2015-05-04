@@ -21,9 +21,7 @@ object Chapter2 {
    *
    * Ans: The value is `()`. The type is `Unit`.
    */
-  def document: Unit = {
-
-  }
+  val q2 = ()
 
   /**
    * Q4: Write a Scala equivalent for the Java loop
