@@ -3,9 +3,6 @@ package name.abhijitsarkar.scala.scalaimpatient.maps
 import scala.io.Source
 import scala.util.Properties.lineSeparator
 
-import org.mockito.Mockito.when
-import org.scalatest.mock.MockitoSugar
-
 import Chapter4.countWords
 import Chapter4.discountGizmos
 import Chapter4.lteggt
@@ -13,7 +10,7 @@ import Chapter4.minmax
 import Chapter4.sysProps
 import name.abhijitsarkar.scala.scalaimpatient.UnitSpec
 
-class Chapter4Spec extends UnitSpec with MockitoSugar {
+class Chapter4Spec extends UnitSpec {
   "discountedGizmos method" should "reduce all prices by 10%" in {
     val gizmos = Map("Leica M9" -> 4950.00, "Hasselblad H5D-200c" -> 45000.00)
 
