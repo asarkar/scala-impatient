@@ -16,10 +16,4 @@ object RichFile {
       Some(path.take(nameStartIdx), name.take(extnStartIdx), name.takeRight(extnStartIdx))
     }
   }
-
-  def unapplySeq(path: String): Option[Seq[String]] = {
-    val RichFile(p, name, extension) = path
-
-    Some(p.split("/") ++ Array(name + "." + extension))
-  }
 }

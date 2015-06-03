@@ -14,7 +14,7 @@ object RichFileSeq {
       None
     else {
       /* The filter is to weed out an empty segment that's created if the path starts with '/' */
-      Some(path.take(nameStartIdx).split("/").filterNot(_.isEmpty) ++ Array(name))
+      Some(path.take(nameStartIdx).split("/").filterNot(_.isEmpty) :+ name)
     }
   }
 }

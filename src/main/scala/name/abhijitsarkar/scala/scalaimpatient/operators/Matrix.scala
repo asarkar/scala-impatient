@@ -13,9 +13,7 @@ class Matrix(val row: Int, val col: Int, val initial: Int = 0) {
   def +(that: Matrix) = {
     validateAdditionCompatibility(that)
 
-    def f(r: Int, c: Int) = {
-      apply(r, c) + that(r, c)
-    }
+    val f = (r: Int, c: Int) => apply(r, c) + that(r, c)
 
     val sum = new Matrix(row, col)
 
@@ -25,7 +23,7 @@ class Matrix(val row: Int, val col: Int, val initial: Int = 0) {
   def *(that: Matrix) = {
     validateMultiplicationCompatibility(that)
     
-    def f(r: Int, c: Int) = {
+    val f = (r: Int, c: Int) => {
       this.arr(r).view.zip(that.arr.collect { case a: Array[Int] => a(c) }).foldLeft(0) {
         (acc, pair) => { 
           println(f"r = $r%d, c = $c%d, acc = $acc%d, pair._1 = ${pair._1}%d, pair._2 = ${pair._2}%d")
@@ -42,9 +40,7 @@ class Matrix(val row: Int, val col: Int, val initial: Int = 0) {
   def *(n: Int) = {
     val pdt = new Matrix(row, col, initial)
 
-    def f(r: Int, c: Int) = {
-      apply(r, c) * n
-    }
+    val f = (r: Int, c: Int) => apply(r, c) * n
 
     updateWithIndices(pdt, f)
   }
