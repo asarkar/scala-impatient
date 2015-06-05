@@ -66,6 +66,8 @@ object Chapter12 {
    */
   def adjustToPair(f: (Int, Int) => Int) = {
     (t: Tuple2[Int, Int]) => f.apply(t._1, t._2)
+    /* tupled method in Function2 trait does this too */
+    // f.tupled
   }
 
   def sumOfPairs(a: Seq[Int], b: Seq[Int]) = {
