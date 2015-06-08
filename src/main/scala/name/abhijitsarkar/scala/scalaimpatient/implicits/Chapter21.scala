@@ -74,4 +74,34 @@ object Chapter21 {
    * Ans: As of v2.11.6, the command to see all implicits in scope is `:implicits -v`
    */
   val q8 = ()
+
+  /**
+   * Q10: The result of `"abc".map(_.toUpper)` is a `String`, but the result of  `"abc".map(_.toInt)` is a `Vector`.
+   * Find out why.
+   *
+   * Ans:
+   * {{{
+   * scala> import scala.reflect.runtime.{universe => ru}
+   * import scala.reflect.runtime.{universe=>ru}
+   *
+   * scala> ru.show{ ru.reify{ "abc".map(_.toUpper) }.tree }
+   * res0: String = Predef.augmentString("abc").map(((x$1) => Predef.charWrapper(x$1).toUpper))(Predef.StringCanBuildFrom)
+   *
+   * scala> ru.show{ ru.reify{ "123".map(_.toInt) }.tree }
+   * res1: String = Predef.augmentString("123").map(((x$1) => x$1.toInt))(Predef.fallbackStringCanBuildFrom)
+   *
+   * scala> Predef.StringCanBuildFrom
+   * res2: scala.collection.generic.CanBuildFrom[String,Char,String] = scala.Predef$$anon$3@43b7a6fa
+   *
+   * scala> Predef.fallbackStringCanBuildFrom
+   * res3: scala.collection.generic.CanBuildFrom[String,Nothing,scala.collection.immutable.IndexedSeq[Nothing]] =
+   * scala.LowPriorityImplicits$$anon$4@61af1aa0
+   * }}}
+   * So `Predef.StringCanBuildFrom` with type `CanBuildFrom[String,Char,String]` is used for `_.toUpper` and
+   * `Predef.fallbackStringCanBuildFrom` with type `CanBuildFrom[String,Nothing,IndexedSeq[Nothing]]` is used for
+   * `_.toInt`.
+   *
+   * Note that type is not `Vector` but `IndexedSeq`. `Vector` is concrete implementation.
+   */
+  val q10 = ()
 }
