@@ -51,6 +51,11 @@ object Chapter14 {
       case leaf: Int => leaf
     }.sum
   }
+
+  /* Methods matching against case classes must declare the abstract super class in the signature, not concrete case classes.
+   * Otherwise error, "constructor cannot be instantiated to expected type". Use 'unapply' to avoid this. 
+   */
+
   /**
    * Q6: A better way (than using `List[Any]`) of modeling trees is with case classes. Let's start with binary trees:
    *
