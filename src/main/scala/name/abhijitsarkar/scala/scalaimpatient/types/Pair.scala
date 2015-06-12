@@ -55,9 +55,9 @@ class NastyDoublePair(val f: Double, val s: Double) extends Pair9[Double](f, s) 
  * type parameters are the same.
  */
 class Pair10[T, S](var first: T, var second: S) {
-  def swap(implicit ev: T =:= S) {
+  def swap(implicit ev: T =:= S, ev2: S =:= T) {
     val temp = first
-    first = second.asInstanceOf[T]
-    second = temp.asInstanceOf[S]
+    first = second
+    second = temp
   }
 }
