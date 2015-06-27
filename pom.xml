@@ -11,6 +11,7 @@
 		<scala.version>2.11.6</scala.version>
 		<scalaTest.plugin.version>1.0</scalaTest.plugin.version>
 		<scalaTest.version>2.2.4</scalaTest.version>
+		<akka.version>2.3.11</akka.version>
 		<mockito.version>1.10.19</mockito.version>
 		<project.build.sourceLevel>1.8</project.build.sourceLevel>
 		<project.build.targetLevel>1.8</project.build.targetLevel>
@@ -18,6 +19,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.11</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest_2.11</artifactId>
