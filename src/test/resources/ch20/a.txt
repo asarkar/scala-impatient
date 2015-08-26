@@ -1,0 +1,2 @@
+scala is an object oriented functional programming language
+scala is a highly expressive and flexible language

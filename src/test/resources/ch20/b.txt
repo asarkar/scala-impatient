@@ -1,0 +1,2 @@
+java is not dead
+scala is java on steroids

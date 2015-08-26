@@ -128,9 +128,12 @@ object Chapter13 {
    * the result is undefined.
    */
   def parFrequency(str: String) = {
-    val freq = ImmutableHashMap[Char, Int]()
-    str.par.aggregate(freq)((_, c) => ImmutableHashMap(c -> 1), _.merged(_) {
-      case ((k, v1), (_, v2)) => (k, v1 + v2)
-    })
+    /* http://stackoverflow.com/questions/30636563/scala-parallel-frequency-calculation-using-aggregate-doesnt-work */
+    //    val freq = ImmutableHashMap[Char, Int]()
+    //    str.par.aggregate(freq)((_, c) => ImmutableHashMap(c -> 1), _.merged(_) {
+    //      case ((k, v1), (_, v2)) => (k, v1 + v2)
+    //    })
+    str.par.aggregate(Map[Char, Int]())((m, c) => { m + (c -> (m.getOrElse(c, 0) + 1)) },
+      (a, b) => b.foldLeft(a) { case (acc, (k, v)) => acc updated (k, acc.getOrElse(k, 0) + v) })
   }
 }
